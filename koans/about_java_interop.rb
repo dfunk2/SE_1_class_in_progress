@@ -1,9 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
-include Java
+include 'Java'
 
 # Concepts
 # * Pull in a java class
+
 # * calling a method, Camel vs snake
 # * Resolving module/class name conflicts
 # * Showing what gets returned
