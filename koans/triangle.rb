@@ -14,7 +14,20 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+    sides = [a, b, c].sort
+
+  # Check for triangle inequality and positive side lengths
+  if sides.any? { |side| side <= 0 } || (sides[0] + sides[1] <= sides[2])
+    raise TriangleError
+  end
+
+  if a == b && b == c
+    :equilateral
+  elsif a == b || b == c || a == c
+    :isosceles
+  else
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
