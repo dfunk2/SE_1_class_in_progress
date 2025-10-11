@@ -7,7 +7,7 @@ def reverse_name(name)
   name = reversed_first_last.join(' ')
   return name
 end
-#Add Borge to name
+#Add Borg to name
 def borg(name)
   name << " Borg"
   return name
