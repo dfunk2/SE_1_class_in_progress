@@ -95,13 +95,37 @@ audit3.do_work
 # # Exercise 5 Part 3 (Wrapping APIs)
 # #-------------------------------------------------------------
 
-# require 'candy_service'
+class CandyMachine
+  attr_reader :ready, :machine
+  def initialize( machine, ready)
+    @ready = ready
+    @machine = machine
+  end
 
-# machine = CandyMachine.new
-# machine.prepare
+  def ready?
+    @ready
+  end
 
-# if machine.ready?
-#   machine.make!
-# else
-#   puts "sadness"
-# end
+  def make!
+    puts "#{@machine} makes 10 pieces of candy"
+  end
+
+  def candyMachineWorking
+    if ready?
+      make!
+    else
+      puts "sadness"
+      begin
+        require 'candy_service'
+      rescue LoadError => e
+      puts " Load error #{e.message}"
+      end 
+    end
+  end
+end
+
+machineWorking = CandyMachine.new("gum ball machine", true)
+machineWorking.candyMachineWorking
+
+brokenMachine = CandyMachine.new("jelly bean machine", false)
+brokenMachine.candyMachineWorking
