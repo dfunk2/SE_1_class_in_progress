@@ -32,7 +32,7 @@ class Panther
   def quack
     puts "Roarquack"
   end
-  
+
   def waddle
     puts "Prowlwaddle"
   end
@@ -45,3 +45,7 @@ duck_activate(d)
 
 p = Panther.new()
 duck_activate(p)  # Broken--you should modify Panther to fix
+
+#list of changes
+# 1. added method for quack inside panther class
+# 2. added method for waddle inside panther class
